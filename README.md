@@ -1,4 +1,7 @@
 ## 安装依赖
+- 本配置来源
+[这里](https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/)
+
 - 安装neovim
 
 - Mac
@@ -19,11 +22,21 @@ sudo update-alternatives --config editor
 pip install neovim jedi --user # 这步很关键，plugin注册需要
 ```
 
-- 安装ctags
+- 安装ctags (neovim 的插件需要)
 参考[这里](https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/)
 
-- 本配置来源
-[这里](https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/)
+- 安装字体 https://github.com/powerline/fonts
+
+```shell
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+```
 
 ## 创建neovim config目录，并将init.vim放置其中
 ```shell
