@@ -52,6 +52,11 @@ Plug 'morhetz/gruvbox'
 "显示当前文件tags，依赖ctag, 参考文章安装https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/
 Plug 'majutsushi/tagbar' 
 
+" for Javascript, from https://hackernoon.com/using-neovim-for-javascript-development-4f07c289d862
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs'
+Plug 'ludovicchabant/vim-gutentags'
+
 call plug#end()
 
 " UI
@@ -185,7 +190,18 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 " ----------------------------
 
-" Deoplete and echodoc
+" - Neoformat ---------------
+
+let g:neoformat_enabled_python = ['autopep8']
+" let g:neoformat_try_formatprg = 1 "Have Neoformat use &formatprg as a formatter
+" ----------------------------
+"
+" - Gutentags ----------------
+" show the progress
+set statusline+=%{gutentags#statusline()}
+" ----------------------------
+
+" - Deoplete and echodoc
 set noshowmode
 let g:echodoc#enable_at_startup = 1
 let g:deoplete#enable_at_startup = 1
@@ -197,6 +213,18 @@ let g:deoplete#sources#jedi#extra_path = split($PYTHONPATH, ":")
 
 let g:deoplete#sources = {}
 let g:deoplete#sources.python = ['jedi']
+
+" added from https://hackernoon.com/using-neovim-for-javascript-development-4f07c289d862
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#max_abbr_width = 0
+let g:deoplete#max_menu_width = 0
+let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
+let g:tern_request_timeout = 1
+let g:tern_request_timeout = 6000
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["- persistent"]
  
 inoremap <silent><expr> <C-x><C-o> deoplete#mappings#manual_complete("jedi")
 inoremap <expr> <C-o> pumvisible() ? "\<C-n>" : "\<C-o>"

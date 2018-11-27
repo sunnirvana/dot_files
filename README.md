@@ -22,6 +22,11 @@ sudo update-alternatives --config editor
 pip install neovim jedi --user # 这步很关键，plugin注册需要
 ```
 
+-- 安装autopep8
+```shell
+pip install --upgrade autopep8
+```
+
 - 安装ctags (neovim 的插件需要)
 参考[这里](https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/)
 
@@ -49,6 +54,8 @@ let g:python_host_prog="/path/to/your/python3/"
 ...
 let g:deoplete#sources#jedi#python_path = "/path/to/your/python3/"
 ```
+### Tern -- Javascript 补全插件
+将tern-config，放入$HOME目录，并改名为.tern-config
 
 ## 修改tmux.config 为 .tmux.confg，然后放置在$HOME目录下
 **注意**
