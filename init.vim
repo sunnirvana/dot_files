@@ -4,6 +4,8 @@ let g:python_host_prog='/usr/local/anaconda3/bin/python3'
 set nocompatible
 filetype off
 
+let mapleader=','
+
 call plug#begin("~/.config/nvim/bundle")
 " Plugin List
 Plug 'rking/ag.vim'
@@ -55,7 +57,7 @@ Plug 'majutsushi/tagbar'
 " for Javascript, from https://hackernoon.com/using-neovim-for-javascript-development-4f07c289d862
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'carlitux/deoplete-ternjs'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'  " 使得自动补全不好用，关闭
 
 call plug#end()
 
@@ -72,6 +74,7 @@ endif " exists(...)
 
 set so=10
 set number
+set ruler
 syntax on
 filetype on
 filetype plugin on
@@ -94,18 +97,30 @@ if has('mouse')
     set nomousehide
 endif
 
+" 自动对齐
 set autoindent
 set modeline
+" 突入显示当前行
 set cursorline
+" 突入显示当前列
 set cursorcolumn
 
+" 设置自动对齐空格数
 set shiftwidth=4
+" 设置Tab宽度
 set tabstop=4
+" 设置按退格键可以一次删除4个空格
 set softtabstop=4
+set smarttab
 
+" 在状态栏显示正在输入的命令
+set showcmd
+" 设置匹配模式 类似当输入一个左括号时会匹配响应的右括号
 set showmatch
 set matchtime=0
+" 设置取消备份 禁止生成临时文件
 set nobackup
+set noswapfile
 set nowritebackup
 set directory=/tmp/.swapfiles//
 
@@ -134,6 +149,7 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 vnoremap <Space> zf
 
 set smartcase
+" 搜索时忽略大小写
 set ignorecase
 set nohlsearch
 set incsearch
@@ -198,7 +214,7 @@ let g:neoformat_enabled_python = ['autopep8']
 "
 " - Gutentags ----------------
 " show the progress
-set statusline+=%{gutentags#statusline()}
+" set statusline+=%{gutentags#statusline()}
 " ----------------------------
 
 " - Deoplete and echodoc

@@ -1,8 +1,16 @@
 ## 安装依赖
 - 本配置来源
-[这里](https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/)
+[这里](https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/)
 
-- 安装neovim
+- 安装Neovim
+[这里](https://neovim.io/)
+
+- 安装vim-plug 
+```shell
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 
 - Mac
 直接修改.zshrc (假如是zshell)
