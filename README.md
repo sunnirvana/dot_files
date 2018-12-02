@@ -66,9 +66,10 @@ let g:deoplete#sources#jedi#python_path = "/path/to/your/python3/"
 将tern-config，放入$HOME目录，并改名为.tern-config
 
 ## 修改tmux.config 为 .tmux.confg，然后放置在$HOME目录下
-**注意**
 
-按需选用 tmux-256color 或者 xterm-256color, 使用 echo $TERM 查看当前的环境
+参考[文章](http://louiszhai.github.io/2017/09/30/tmux/#Tmux%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4)
+
+### 按需选用 tmux-256color 或者 xterm-256color, 使用 echo $TERM 查看当前的环境
 否则会出现按键失灵，比如backspace键不好用
 修改
 ```shell
@@ -76,7 +77,7 @@ let g:deoplete#sources#jedi#python_path = "/path/to/your/python3/"
 set -g default-terminal "xterm-256color"
 ```
 
-## 修改后的常用快捷键
+### 修改后的常用快捷键
 c-a, \`: 前者是主prefix, 后者是副的
 prefix + r: 重载配置
 prefix + |: 垂直创建新面板
