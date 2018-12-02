@@ -90,6 +90,9 @@ prefix + m: 新面板打开man手册
 prefix + P: 保存输出的日志
 prefix + c-s: save session
 prefix + c-r: restore session
+prefix + I: 下载插件
+prefix + U: 更新插件
+prefix + alt + U: 卸载插件
 ```
 
 
