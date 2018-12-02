@@ -78,7 +78,8 @@ set -g default-terminal "xterm-256color"
 ```
 
 ### 修改后的常用快捷键
-c-a, \`: 前者是主prefix, 后者是副的
+```shell
+c-a, `: 前者是主prefix, 后者是副的
 prefix + r: 重载配置
 prefix + |: 垂直创建新面板
 prefix + -: 水平创建新面板
@@ -89,6 +90,7 @@ prefix + m: 新面板打开man手册
 prefix + P: 保存输出的日志
 prefix + c-s: save session
 prefix + c-r: restore session
+```
 
 
 ### 使用系统粘贴板
@@ -104,6 +106,11 @@ brew install reattach-to-user-namespace
 ## 使用oh-my-zsh
 前提是已经安装了zsh https://ohmyz.sh/
 
+## z shell配置
+```shell
+# prevent ctr-d from exiting the shell 
+set -o ignoreeof
+```
 
 ## PyCharm / PhpStorm 的配置文件
 导入 BobSettings.jar 即可
