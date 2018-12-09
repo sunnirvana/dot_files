@@ -1,120 +1,172 @@
-## 安装依赖
-- 本配置来源
-[这里](https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/)
+# Mac 环境配置
 
-- 安装Neovim
-[这里](https://neovim.io/)
+[TOC]
 
-- 安装vim-plug 
-```shell
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
+## Homebrew
 
+## 软件列表
 
-- Mac
-直接修改.zshrc (假如是zshell)
-```shell
-alias vim='nvim'
-```
-
-- Ubuntu 配置: 让 neovim 为默认 vim
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-sudo update-alternatives --config vim
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-sudo update-alternatives --config editor
-
-
-- 安装python依赖neovim, jedi
-```shell
-pip install neovim jedi --user # 这步很关键，plugin注册需要
-```
-
--- 安装autopep8
-```shell
-pip install --upgrade autopep8
-```
-
-- 安装ctags (neovim 的插件需要)
-参考[这里](https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/)
+## iTerm2
 
 - 安装字体 https://github.com/powerline/fonts
 
-```shell
-# clone
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts
-```
+  ```shell
+  # clone
+  git clone https://github.com/powerline/fonts.git --depth=1
+  # install
+  cd fonts
+  ./install.sh
+  # clean-up a bit
+  cd ..
+  rm -rf fonts
+  ```
 
-## 创建neovim config目录，并将init.vim放置其中
-```shell
-mkdir -p ~/.config/nvim && cd ~/.config/nvim
-nvim -c UpdateRemotePlugins
-```
-**注意修改**
-```shell
-let g:python_host_prog="/path/to/your/python3/"
-...
-let g:deoplete#sources#jedi#python_path = "/path/to/your/python3/"
-```
-### Tern -- Javascript 补全插件
-将tern-config，放入$HOME目录，并改名为.tern-config
+## Z Shell
 
-## 修改tmux.config 为 .tmux.confg，然后放置在$HOME目录下
+- 安装方法
 
-参考[文章](http://louiszhai.github.io/2017/09/30/tmux/#Tmux%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4)
+- 设置 zsh 为默认
 
-### 按需选用 tmux-256color 或者 xterm-256color, 使用 echo $TERM 查看当前的环境
-否则会出现按键失灵，比如backspace键不好用
-修改
-```shell
-# set -g default-terminal "tmux-256color"
-set -g default-terminal "xterm-256color"
-```
+  - 检查当前 shell
 
-### 修改后的常用快捷键
-```shell
-c-a, `: 前者是主prefix, 后者是副的
-prefix + r: 重载配置
-prefix + |: 垂直创建新面板
-prefix + -: 水平创建新面板
-prefix + k/j/h/l: 切换面板
-prefix + e/c-e: 选择最后一个面板/窗口
-prefix + c-u/c-d: 与前/后面板交换位置
-prefix + m: 新面板打开man手册
-prefix + P: 保存输出的日志
-prefix + c-s: save session
-prefix + c-r: restore session
-prefix + I: 下载插件
-prefix + U: 更新插件
-prefix + alt + U: 卸载插件
-```
+    ```shell
+    echo $SHELL
+    ```
 
+  - 如果不是 zsh, 按照如下方式可以设置
+    - Go to System Preferences
+    - Click on "Users & Groups"
+    - Click the lock to make changes.
+    - Right click the current user -> Advanced options
+    - Change the login shell to /bin/zsh in the dropdown.
+    - Open a new terminal and verify with echo \$SHELL
+      参考[文章](https://stackoverflow.com/questions/31034870/making-zsh-default-shell-in-macosx)
 
-### 使用系统粘贴板
-Linux:
-```shell
-sudo apt-get install xclip
-```
-Mac:
-```shell
-brew install reattach-to-user-namespace
-```
+- Oh-my-zsh
+  - 安装方法
+    参考[官网](https://ohmyz.sh/)
+  - 在 .zshrc 中添加下面配置, 防止 ctrl-d 关闭 shell
+    ```shell
+    # prevent ctr-d from exiting the shell
+    set -o ignoreeof
+    ```
 
-## 使用oh-my-zsh
-前提是已经安装了zsh https://ohmyz.sh/
+## Tmux
 
-## z shell配置
-```shell
-# prevent ctr-d from exiting the shell 
-set -o ignoreeof
-```
+- 修改 tmux/tmux.config 为 .tmux.config，然后放置在 HOME 目录下
 
-## PyCharm / PhpStorm 的配置文件
+  参考[文章](http://louiszhai.github.io/2017/09/30/tmux/#Tmux%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4)
+
+- .tmux.config 中, 按需选用 tmux-256color 或者 xterm-256color, 使用 `echo $TERM` 查看当前的环境, 否则会出现按键失灵, 比如 backspace 键
+
+  ```shell
+  # set -g default-terminal "tmux-256color"
+  set -g default-terminal "xterm-256color"
+  ```
+
+- 使用系统粘贴板, 需要安装特定的扩展
+
+  - Linux:
+
+    ```shell
+    sudo apt-get install xclip
+    ```
+
+  - Mac:
+
+    ```shell
+    brew install reattach-to-user-namespace
+    ```
+
+- 安装 tpm
+
+  ```shell
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ```
+
+- 修改后的常用快捷键
+
+  - c-a, `: 前者是主 prefix, 后者是副的
+  - prefix + r: 重载配置
+  - prefix + |: 垂直创建新面板
+  - prefix + -: 水平创建新面板
+  - prefix + k/j/h/l: 切换面板
+  - prefix + e/c-e: 选择最后一个面板/窗口
+  - prefix + c-u/c-d: 与前/后面板交换位置
+  - prefix + m: 新面板打开 man 手册
+  - prefix + P: 保存输出的日志
+  - prefix + c-s: save session
+  - prefix + c-r: restore session
+  - prefix + I: 下载插件
+  - prefix + U: 更新插件
+  - prefix + alt + U: 卸载插件
+
+- 在.zshrc 中添加 tmux 插件后, shell 支持的 tmux 快捷为
+  ta: tmux attach -t
+  tad: tmux attach -d -t
+  ts: tmux new-session -s
+  tl: tmux list-sessions
+  tksv: tmux kill-server
+  tkss: tmux kill-session -t
+
+## neovim
+
+- 安装 Neovim
+  参考[官网](https://neovim.io/)
+
+- 让 neovim 为默认 vim.
+
+  - Mac, 添加配置到 .zshrc
+
+    ```shell
+    alias vim='nvim'
+    ```
+
+  - Ubuntu
+    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+    sudo update-alternatives --config vim
+    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+    sudo update-alternatives --config editor
+
+- 安装 python 依赖 neovim, jedi
+
+  ```shell
+  pip install neovim jedi --user # 这步很关键，plugin注册需要
+  ```
+
+- 安装 autopep8
+
+  ```shell
+  pip install --upgrade autopep8
+  ```
+
+- 安装 ctags (neovim 的插件需要)
+  参考[文章](https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/)
+
+- 安装 vim-plug
+
+  ```shell
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  ```
+
+- 创建 neovim config 目录，并将 init.vim 放置其中
+
+  ```shell
+  mkdir -p ~/.config/nvim && cd ~/.config/nvim
+  nvim -c UpdateRemotePlugins
+  ```
+
+- 根据系统修改 python3 配置
+
+  ```shell
+  let g:python_host_prog="/path/to/your/python3/"
+  ...
+  let g:deoplete#sources#jedi#python_path = "/path/to/your/python3/"
+  ```
+
+- Tern -- Javascript 补全插件
+  将 tern-config，放入\$HOME 目录，并改名为.tern-config
+
+## JetBrains (PhpStrom, PyCharm) 的配置文件
+
 导入 BobSettings.jar 即可
-
