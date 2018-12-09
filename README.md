@@ -51,8 +51,10 @@
       参考[文章](https://stackoverflow.com/questions/31034870/making-zsh-default-shell-in-macosx)
 
 - Oh-my-zsh
+
   - 安装方法
     参考[官网](https://ohmyz.sh/)
+
   - 在 .zshrc 中添加下面配置, 防止 ctrl-d 关闭 shell
     ```shell
     # prevent ctr-d from exiting the shell
@@ -110,12 +112,12 @@
   - prefix + alt + U: 卸载插件
 
 - 在.zshrc 中添加 tmux 插件后, shell 支持的 tmux 快捷为
-  ta: tmux attach -t
-  tad: tmux attach -d -t
-  ts: tmux new-session -s
-  tl: tmux list-sessions
-  tksv: tmux kill-server
-  tkss: tmux kill-session -t
+  - ta: tmux attach -t
+  - tad: tmux attach -d -t
+  - ts: tmux new-session -s
+  - tl: tmux list-sessions
+  - tksv: tmux kill-server
+  - tkss: tmux kill-session -t
 
 ## neovim
 
