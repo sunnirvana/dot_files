@@ -58,6 +58,9 @@ Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'carlitux/deoplete-ternjs'
 " Plug 'ludovicchabant/vim-gutentags'  " 使得自动补全不好用，关闭
+"
+" for vue
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -245,7 +248,7 @@ let g:tern#arguments = ["- persistent"]
 inoremap <silent><expr> <C-x><C-o> deoplete#mappings#manual_complete("jedi")
 inoremap <expr> <C-o> pumvisible() ? "\<C-n>" : "\<C-o>"
 " 使用tab向下查找
-inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<tab>"
 " ----------------------------
 
 " - NerdTree -----------------
@@ -320,16 +323,17 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {}
+
 let g:airline#extensions#ale#enabled = 1
 
 " flake8 检查工具需要通过 pip install flake8 安装
-let g:ale_linters = {
-\   'python': ['flake8'],
-\}
+let g:ale_linters = {'python': ['flake8'], 'vue': ['eslint', 'vls']}
 
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
-let g:ale_python_flake8_options = "--ignore=E501,F401,E226,E741"
+let g:ale_python_flake8_options = "--ignore=E501,F401,E226,E741,E402"
 " ---------------------------
 
 " Load local config if exists
