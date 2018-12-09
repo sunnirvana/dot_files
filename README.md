@@ -8,7 +8,8 @@
 
 ## iTerm2
 
-- 安装字体 https://github.com/powerline/fonts
+- 安装字体
+  参考[链接](https://github.com/powerline/fonts)
 
   ```shell
   # clone
@@ -20,6 +21,13 @@
   cd ..
   rm -rf fonts
   ```
+
+  个人比较喜欢的字体是**Noto Mono for Powerline**
+
+- 安装 scheme, 配色
+  参考[链接](https://github.com/mbadolato/iTerm2-Color-Schemes)
+  下载后, 在 Preferences->Profiles->Colors->Color Presets->Import...
+  个人比较喜欢的配色是**Solarized Dark Higher Contrast**
 
 ## Z Shell
 
@@ -167,6 +175,8 @@
 - Tern -- Javascript 补全插件
   将 tern-config，放入\$HOME 目录，并改名为.tern-config
 
-## JetBrains (PhpStrom, PyCharm) 的配置文件
+## JetBrains (PhpStrom, PyCharm) 配置
 
 导入 BobSettings.jar 即可
+
+## VS Code 配置
