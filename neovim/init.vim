@@ -116,6 +116,9 @@ set tabstop=4
 set softtabstop=4
 set smarttab
 
+" 复制内容到系统剪切板
+set clipboard=unnamed
+
 " 在状态栏显示正在输入的命令
 set showcmd
 " 设置匹配模式 类似当输入一个左括号时会匹配响应的右括号
@@ -340,3 +343,4 @@ let g:ale_python_flake8_options = "--ignore=E501,F401,E226,E741,E402"
 if filereadable(expand("~/.config/nvim/local.vim"))
 	source ~/.vim/config/local.vim
 endif
+
