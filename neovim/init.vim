@@ -16,7 +16,6 @@ Plug 'bigeagle/molokai'
 Plug 'bling/vim-airline' 
 Plug 'scrooloose/nerdtree' 
 
-Plug 'majutsushi/tagbar'
 Plug 'jrosiek/vim-mark'
 Plug 'kien/rainbow_parentheses.vim'
 
@@ -193,14 +192,17 @@ function ScriptHeader()
 endfunction
 
 " --- Plugin Configs ---------
-let g:tagbar_width = 60
-nmap tb :TagbarToggle<cr>  
 let g:localvimrc_ask=0
 let g:localvimrc_sandbox=0
 
 au FileType json setlocal conceallevel=0
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_noConcealCursor=""
+
+" - Tagbar --------------------
+let g:tagbar_width = 60
+nmap tb :TagbarToggle<cr>  
+" -----------------------------
 
 " - Airline -------------------
 set noshowmode
