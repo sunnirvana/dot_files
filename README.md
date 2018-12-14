@@ -113,6 +113,7 @@
   - prefix + ,: 重命名window
   - prefix + %: 重命名session
   - prefix + c: 新开window
+  - prefix + n: 切换到下一个window
 
 - 在.zshrc 中添加 tmux 插件后, shell 支持的 tmux 快捷为
   - ta: tmux attach -t

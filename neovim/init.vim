@@ -138,8 +138,9 @@ endif
 set backspace=indent,eol,start
 
 set fenc=utf-8
-set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp
+set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp,ucs-bom
 set enc=utf-8
+set termencoding=utf-8
 
 "按缩进或手动折叠
 augroup vimrc
