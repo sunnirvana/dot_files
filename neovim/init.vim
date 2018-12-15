@@ -16,6 +16,7 @@ Plug 'bigeagle/molokai'
 Plug 'bling/vim-airline' 
 Plug 'scrooloose/nerdtree' 
 
+Plug 'majutsushi/tagbar'
 Plug 'jrosiek/vim-mark'
 Plug 'kien/rainbow_parentheses.vim'
 
@@ -82,6 +83,53 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" 文件修改之后自动载入
+set autoread
+
+" history存储容量
+set history=2000
+
+" Map ; to : and save a million keystrokes 用于快速进入命令行
+nnoremap ; :
+
+" Go to home and end using capitalized directions
+noremap H ^
+noremap L $
+
+" 命令行模式增强，ctrl - a到行首， -e 到行尾
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" F1 - F6 设置
+
+" F1 废弃这个键,防止调出系统帮助
+" I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
+noremap <F1> <Esc>"
+
+" F2 行号开关，用于鼠标复制代码用
+" 为方便复制，用<F2>开启/关闭行号显示:
+" function! HideNumber()
+  " if(&relativenumber == &number)
+    " set relativenumber! number!
+  " elseif(&number)
+    " set number!
+  " else
+    " set relativenumber!
+  " endif
+  " set number?
+" endfunc
+" nnoremap <F2> :call HideNumber()<CR>
+nnoremap <F2> :set number! number?<CR>
+" F3 显示可打印字符开关
+nnoremap <F3> :set list! list?<CR>
+" F4 搜索高亮开关
+nnoremap <F4> :set hlsearch! hlsearch?<CR>
+
+" F6 语法开关，关闭语法可以加快大文件的展示
+nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+
 set list lcs=tab:\¦\   
 
 if has("autocmd")  " go back to where you exited
@@ -98,9 +146,17 @@ if has('mouse')
     set selectmode=mouse,key
     set nomousehide
 endif
+" 在上下移动光标时，光标的上方或下方至少会保留显示的行数
+set scrolloff=7
 
+" change the terminal's title
+set title
+" Smart indent
+set smartindent
 " 自动对齐
 set autoindent
+" Remember info about open buffers on close
+set viminfo^=%
 set modeline
 " 突入显示当前行
 set cursorline
@@ -113,10 +169,12 @@ set shiftwidth=4
 set tabstop=4
 " 设置按退格键可以一次删除4个空格
 set softtabstop=4
+" insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
 set smarttab
-
-" 复制内容到系统剪切板
-set clipboard=unnamed
+" 将Tab自动转化成空格[需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+set expandtab
+" 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
+set shiftround
 
 " 在状态栏显示正在输入的命令
 set showcmd
@@ -125,6 +183,7 @@ set showmatch
 set matchtime=0
 " 设置取消备份 禁止生成临时文件
 set nobackup
+" 关闭交换文件
 set noswapfile
 set nowritebackup
 set directory=/tmp/.swapfiles//
@@ -134,6 +193,9 @@ if has('nvim')
    set ttimeoutlen=0
 endif
 
+" 选中并高亮最后一次插入的内容
+nnoremap gv `[v`]
+
 "在insert模式下能用删除键进行删除
 set backspace=indent,eol,start
 
@@ -141,6 +203,10 @@ set fenc=utf-8
 set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp,ucs-bom
 set enc=utf-8
 set termencoding=utf-8
+" 如遇Unicode值大于255的文本，不必等到空格再折行
+set formatoptions+=m
+" 合并两行中文时，不在中间加空格
+set formatoptions+=B
 
 "按缩进或手动折叠
 augroup vimrc
@@ -154,10 +220,13 @@ set foldlevel=200  " disable auto folding
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 vnoremap <Space> zf
 
+" 有一个或以上大写字母时仍大小写敏感
 set smartcase
 " 搜索时忽略大小写
 set ignorecase
-set nohlsearch
+" 高亮search命中的文本
+set hlsearch
+" 打开增量搜索模式,随着键入即时搜索
 set incsearch
 set autochdir
 
@@ -192,8 +261,35 @@ function ScriptHeader()
     normal ''
 endfunction
 
+" vimrc文件修改之后自动加载, windows
+autocmd! bufwritepost _vimrc source %
+" vimrc文件修改之后自动加载, linux
+autocmd! bufwritepost .vimrc source %
+
+" 增强模式中的命令行自动完成操作
+set wildmenu
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc,*.class
+
+" 离开插入模式后自动关闭预览窗口
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" 切换前后buffer
+nnoremap [b :bprevious<cr>
+nnoremap ]b :bnext<cr>
+
+" remap U to <C-r> for easier redo
+nnoremap U <C-r>
+
+" Quickly edit/reload the vimrc file
+" nmap <silent> <leader>ev :e $MYVIMRC<CR>
+" nmap <silent> <leader>sv :so $MYVIMRC<CR>
+" edit vimrc/zshrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
 " --- Plugin Configs ---------
-let g:localvimrc_ask=0
+let g:localvimrc_ask=2
 let g:localvimrc_sandbox=0
 
 au FileType json setlocal conceallevel=0
@@ -346,4 +442,3 @@ let g:ale_python_flake8_options = "--ignore=E501,F401,E226,E741,E402"
 if filereadable(expand("~/.config/nvim/local.vim"))
 	source ~/.vim/config/local.vim
 endif
-
