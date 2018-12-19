@@ -187,8 +187,8 @@
 
 ## VS Code 配置
 
-
-==== 新环境配置 (待整理) ====
+## ==== 新环境配置 (待整理) ====
+```shell
 
 Tmux:
 sudo apt-get install libevent-dev
@@ -219,3 +219,4 @@ sudo usermod -s /bin/zsh sunyubo
 
 Oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```shell
