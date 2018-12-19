@@ -1,4 +1,4 @@
-# Mac 环境配置
+# Mac or Ubuntu 环境配置
 
 [TOC]
 
