@@ -220,3 +220,13 @@ sudo usermod -s /bin/zsh sunyubo
 Oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+
+## FAQ
+### 启动Tumx遇到如下错误 (Tmux v2.1)
+```shell
+/home/sunyubo/.tmux.conf:68: usage: send-keys [-lRM] [-t target-pane] key ...
+/home/sunyubo/.tmux.conf:69: usage: send-keys [-lRM] [-t target-pane] key ...
+/home/sunyubo/.tmux.conf:200: unknown option: pane-border-status
+/home/sunyubo/.tmux.conf:201: unknown option: pane-border-format
+```
+==> 需要更新Tmux (Tmux 2.9)
