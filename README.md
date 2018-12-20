@@ -98,6 +98,8 @@
 
   - c-a, `: 前者是主 prefix, 后者是副的
   - prefix + r: 重载配置
+  - prefix + s: 列出所有session
+  - prefix + w: 列出所有window
   - prefix + |: 垂直创建新面板
   - prefix + -: 水平创建新面板
   - prefix + k/j/h/l: 切换面板
