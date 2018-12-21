@@ -9,7 +9,7 @@
 ## iTerm2
 
 - 安装字体
-  参考[链接](https://github.com/powerline/fonts)
+  参考：https://github.com/powerline/fonts
 
   ```shell
   # clone
@@ -25,7 +25,7 @@
   个人比较喜欢的字体是**Noto Mono for Powerline**
 
 - 安装 scheme, 配色
-  参考[链接](https://github.com/mbadolato/iTerm2-Color-Schemes)
+  参考: https://github.com/mbadolato/iTerm2-Color-Schemes
   下载后, 在 Preferences->Profiles->Colors->Color Presets->Import...
   个人比较喜欢的配色是**Solarized Dark Higher Contrast**
 
@@ -48,24 +48,29 @@
     - Right click the current user -> Advanced options
     - Change the login shell to /bin/zsh in the dropdown.
     - Open a new terminal and verify with echo \$SHELL
-      参考[文章](https://stackoverflow.com/questions/31034870/making-zsh-default-shell-in-macosx)
+      参考：https://stackoverflow.com/questions/31034870/making-zsh-default-shell-in-macosx
 
 - Oh-my-zsh
 
   - 安装方法
     参考[官网](https://ohmyz.sh/)
 
-  - 在 .zshrc 中添加下面配置, 防止 ctrl-d 关闭 shell
+  - 在 .zshrc 中添加下面配置
     ```shell
     # prevent ctr-d from exiting the shell
     set -o ignoreeof
+    
+    # fzf config
+    export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
+    export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+
     ```
 
 ## Tmux
 
 - 修改 tmux/tmux.config 为 .tmux.config，然后放置在 HOME 目录下
 
-  参考[文章](http://louiszhai.github.io/2017/09/30/tmux/#Tmux%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4)
+  参考：http://louiszhai.github.io/2017/09/30/tmux/#Tmux%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4
 
 - .tmux.config 中, 按需选用 tmux-256color 或者 xterm-256color, 使用 `echo $TERM` 查看当前的环境, 否则会出现按键失灵, 比如 backspace 键
 
@@ -128,7 +133,7 @@
 ## neovim
 
 - 安装 Neovim
-  参考[官网](https://neovim.io/)
+  参考: https://neovim.io/
 
 - 让 neovim 为默认 vim.
 
@@ -155,9 +160,50 @@
   ```shell
   pip install --upgrade autopep8
   ```
+- 安装 fd，比 find更快的文件查找，作为fzf的底层查找命令
+  参考：https://github.com/sharkdp/fd
+  ```shell
+  wget https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-musl_7.2.0_amd64.deb
+  sudo dpkg -i fd-musl_7.2.0_amd64.deb
+  ```
+
+- 安装 fzf
+  参考：
+  
+  ```shell
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+  ```
+
+- 安装 highlight，高亮语法显示，fzf中用到
+  参考: http://www.andre-simon.de/doku/highlight/en/highlight.php
+  ```shell
+  # Ubuntu
+  sudo apt-get install liblua5.3-dev
+  wget http://www.andre-simon.de/zip/highlight-3.48.tar.bz2
+  tar xjf highlight-3.48.tar.bz2
+  cd highlight-3.48
+  make help
+  make
+  make install # (depending on your installation destination, you need to be root)
+  
+  # Mac 
+  brew install highlight
+  ```
+  
+
+- 安装 ag (the_silver_searcher)
+  参考：https://github.com/ggreer/the_silver_searcher
+  
+  ```shell
+  # Mac
+  brew install the_silver_searcher
+  # Ubuntu
+  apt-get install silversearcher-ag
+  ```
 
 - 安装 ctags (neovim 的插件需要)
-  参考[文章](https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/)
+  参考 https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/
 
 - 安装 vim-plug
 
