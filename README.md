@@ -56,10 +56,11 @@
     参考[官网](https://ohmyz.sh/)
 
   - 在 .zshrc 中添加下面配置
+
     ```shell
     # prevent ctr-d from exiting the shell
     set -o ignoreeof
-    
+
     # fzf config
     export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
     export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
@@ -103,8 +104,8 @@
 
   - c-a, `: 前者是主 prefix, 后者是副的
   - prefix + r: 重载配置
-  - prefix + s: 列出所有session
-  - prefix + w: 列出所有window
+  - prefix + s: 列出所有 session
+  - prefix + w: 列出所有 window
   - prefix + |: 垂直创建新面板
   - prefix + -: 水平创建新面板
   - prefix + k/j/h/l: 切换面板
@@ -117,10 +118,10 @@
   - prefix + I: 下载插件
   - prefix + U: 更新插件
   - prefix + alt + U: 卸载插件
-  - prefix + ,: 重命名window
-  - prefix + %: 重命名session
-  - prefix + c: 新开window
-  - prefix + n: 切换到下一个window
+  - prefix + ,: 重命名 window
+  - prefix + %: 重命名 session
+  - prefix + c: 新开 window
+  - prefix + n: 切换到下一个 window
 
 - 在.zshrc 中添加 tmux 插件后, shell 支持的 tmux 快捷为
   - ta: tmux attach -t
@@ -160,8 +161,10 @@
   ```shell
   pip install --upgrade autopep8
   ```
-- 安装 fd，比 find更快的文件查找，作为fzf的底层查找命令
+
+- 安装 fd，比 find 更快的文件查找，作为 fzf 的底层查找命令
   参考：https://github.com/sharkdp/fd
+
   ```shell
   wget https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-musl_7.2.0_amd64.deb
   sudo dpkg -i fd-musl_7.2.0_amd64.deb
@@ -171,14 +174,15 @@
   参考：https://github.com/junegunn/fzf
   参考：https://www.jianshu.com/p/bb91582317ed
   参考：https://keelii.com/2018/08/12/fuzzy-finder-full-guide/
-  
+
   ```shell
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
   ```
 
-- 安装 highlight，高亮语法显示，fzf中用到
+- 安装 highlight，高亮语法显示，fzf 中用到
   参考: http://www.andre-simon.de/doku/highlight/en/highlight.php
+
   ```shell
   # Ubuntu
   sudo apt-get install liblua5.3-dev
@@ -188,14 +192,14 @@
   make help
   make
   make install # (depending on your installation destination, you need to be root)
-  
-  # Mac 
+
+  # Mac
   brew install highlight
   ```
-  
+
 - 安装 ag (the_silver_searcher)
   参考：https://github.com/ggreer/the_silver_searcher
-  
+
   ```shell
   # Mac
   brew install the_silver_searcher
@@ -237,6 +241,7 @@
 ## VS Code 配置
 
 ## ==== 新环境配置 (待整理) ====
+
 ```shell
 
 Tmux:
@@ -271,11 +276,14 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 ```
 
 ## FAQ
-### 启动Tumx遇到如下错误 (Tmux v2.1)
+
+### 启动 Tumx 遇到如下错误 (Tmux v2.1)
+
 ```shell
 /home/sunyubo/.tmux.conf:68: usage: send-keys [-lRM] [-t target-pane] key ...
 /home/sunyubo/.tmux.conf:69: usage: send-keys [-lRM] [-t target-pane] key ...
 /home/sunyubo/.tmux.conf:200: unknown option: pane-border-status
 /home/sunyubo/.tmux.conf:201: unknown option: pane-border-format
 ```
-==> 需要更新Tmux (Tmux 2.9)
+
+==> 需要更新 Tmux (Tmux 2.9)
