@@ -1,5 +1,8 @@
-"let g:python_host_prog='/usr/bin/python3.5'
-let g:python_host_prog='/usr/local/anaconda3/bin/python3'
+if has('macunix') "Mac
+    let g:python_host_prog='/usr/local/anaconda3/bin/python3'
+elseif has('unix') "Linux
+    let g:python_host_prog='/usr/bin/python3.5'
+endif
 
 set nocompatible
 filetype off
@@ -61,6 +64,10 @@ Plug 'carlitux/deoplete-ternjs'
 "
 " for vue
 Plug 'posva/vim-vue'
+
+" for fzf 文件搜索
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -230,6 +237,11 @@ set hlsearch
 set incsearch
 set autochdir
 
+" 退出 insert mode 并保存
+imap jj <Esc>:w<CR>
+" 退出 insert mode
+imap jj <Esc>
+
 vmap j gj
 vmap k gk
 nmap j gj
@@ -328,8 +340,11 @@ let g:echodoc#enable_at_startup = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 0
 let g:deoplete#enable_smart_case = 1
-"let g:deoplete#sources#jedi#python_path = "/usr/bin/python3.5"
-let g:deoplete#sources#jedi#python_path = "/usr/local/anaconda3/bin/python3.7"
+if has('macunix') " Mac
+    let g:deoplete#sources#jedi#python_path = "/usr/local/anaconda3/bin/python3.7"
+elseif has('unix') " Linux
+    let g:deoplete#sources#jedi#python_path = "/usr/bin/python3.5"
+endif
 let g:deoplete#sources#jedi#extra_path = split($PYTHONPATH, ":")
 
 let g:deoplete#sources = {}
@@ -437,8 +452,24 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_python_flake8_options = "--ignore=E501,F401,E226,E741,E402"
 " ---------------------------
+"
+" - FZF ---------------------
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+"----------------------------
+
+" - AG ----------------------
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+nnoremap <silent> <Leader>A :Ag<CR>
+"----------------------------
 
 " Load local config if exists
 if filereadable(expand("~/.config/nvim/local.vim"))
 	source ~/.vim/config/local.vim
 endif
+
+
