@@ -454,7 +454,8 @@ let g:ale_python_flake8_options = "--ignore=E501,F401,E226,E741,E402"
 " ---------------------------
 "
 " - FZF ---------------------
-nnoremap <silent> <Leader>f :Files<CR>
+" nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 "----------------------------
 
