@@ -168,7 +168,9 @@
   ```
 
 - 安装 fzf
-  参考：
+  参考：https://github.com/junegunn/fzf
+  参考：https://www.jianshu.com/p/bb91582317ed
+  参考：https://keelii.com/2018/08/12/fuzzy-finder-full-guide/
   
   ```shell
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -191,7 +193,6 @@
   brew install highlight
   ```
   
-
 - 安装 ag (the_silver_searcher)
   参考：https://github.com/ggreer/the_silver_searcher
   
