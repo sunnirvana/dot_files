@@ -69,6 +69,8 @@ Plug 'posva/vim-vue'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" 为了diff
+Plug 'chrisbra/vim-diff-enhanced'
 call plug#end()
 
 " UI
