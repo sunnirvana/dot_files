@@ -54,6 +54,9 @@
 
   - 安装方法
     参考[官网](https://ohmyz.sh/)
+    ```shell
+    sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    ```
 
   - 在 .zshrc 中添加下面配置
 
