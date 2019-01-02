@@ -206,7 +206,7 @@
   # Mac
   brew install the_silver_searcher
   # Ubuntu
-  apt-get install silversearcher-ag
+  sudo apt-get install silversearcher-ag
   ```
 
 - 安装 ctags (neovim 的插件需要)
