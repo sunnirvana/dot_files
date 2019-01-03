@@ -1,10 +1,69 @@
 # Mac or Ubuntu 环境配置
 
-[TOC]
-
 ## Homebrew
 
 ## 软件列表
+
+### 安装 fd，比 find 更快的文件查找，作为 fzf 的底层查找命令
+
+- 参考：https://github.com/sharkdp/fd
+
+- 示例
+
+  ```shell
+  wget https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-musl_7.2.0_amd64.deb
+  sudo dpkg -i fd-musl_7.2.0_amd64.deb
+  ```
+
+### 安装 fzf
+
+- 参考
+  https://github.com/junegunn/fzf
+  https://www.jianshu.com/p/bb91582317ed
+  https://keelii.com/2018/08/12/fuzzy-finder-full-guide/
+
+- 示例
+  ```shell
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+  ```
+
+### 安装 highlight，高亮语法显示，fzf 中用到
+
+- 参考: http://www.andre-simon.de/doku/highlight/en/highlight.php
+
+- 示例
+
+  ```shell
+  # Ubuntu
+  sudo apt-get install liblua5.3-dev
+  wget http://www.andre-simon.de/zip/highlight-3.48.tar.bz2
+  tar xjf highlight-3.48.tar.bz2
+  cd highlight-3.48
+  make help
+  make
+  make install # (depending on your installation destination, you need to be root)
+
+  # Mac
+  brew install highlight
+  ```
+
+### 安装 ag (the_silver_searcher)
+
+- 参考：https://github.com/ggreer/the_silver_searcher
+
+- 示例
+
+  ```shell
+  # Mac
+  brew install the_silver_searcher
+  # Ubuntu
+  apt-get install silversearcher-ag
+  ```
+
+### ctags (neovim 的插件需要)
+
+- 参考 https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/
 
 ## iTerm2
 
@@ -164,68 +223,20 @@
   pip install --upgrade autopep8
   ```
 
-- 安装 fd，比 find 更快的文件查找，作为 fzf 的底层查找命令
-  参考：https://github.com/sharkdp/fd
-
-  ```shell
-  wget https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-musl_7.2.0_amd64.deb
-  sudo dpkg -i fd-musl_7.2.0_amd64.deb
-  ```
-
-- 安装 fzf
-  参考：https://github.com/junegunn/fzf
-  参考：https://www.jianshu.com/p/bb91582317ed
-  参考：https://keelii.com/2018/08/12/fuzzy-finder-full-guide/
-
-  ```shell
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
-  ```
-
-- 安装 highlight，高亮语法显示，fzf 中用到
-  参考: http://www.andre-simon.de/doku/highlight/en/highlight.php
-
-  ```shell
-  # Ubuntu
-  sudo apt-get install liblua5.3-dev
-  wget http://www.andre-simon.de/zip/highlight-3.48.tar.bz2
-  tar xjf highlight-3.48.tar.bz2
-  cd highlight-3.48
-  make help
-  make
-  make install # (depending on your installation destination, you need to be root)
-
-  # Mac
-  brew install highlight
-  ```
-
-- 安装 ag (the_silver_searcher)
-  参考：https://github.com/ggreer/the_silver_searcher
-
-  ```shell
-  # Mac
-  brew install the_silver_searcher
-  # Ubuntu
-  apt-get install silversearcher-ag
-  ```
-
-- 安装 ctags (neovim 的插件需要)
-  参考 https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/
-
-- 安装 vim-plug
+* 安装 vim-plug
 
   ```shell
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   ```
 
-- 创建 neovim config 目录，并将 init.vim 放置其中
+* 创建 neovim config 目录，并将 init.vim 放置其中
 
   ```shell
   mkdir -p ~/.config/nvim && cd ~/.config/nvim
   nvim -c UpdateRemotePlugins
   ```
 
-- 根据系统修改 python3 配置
+* 根据系统修改 python3 配置
 
   ```shell
   let g:python_host_prog="/path/to/your/python3/"
@@ -233,7 +244,7 @@
   let g:deoplete#sources#jedi#python_path = "/path/to/your/python3/"
   ```
 
-- Tern -- Javascript 补全插件
+* Tern -- Javascript 补全插件
   将 tern-config，放入\$HOME 目录，并改名为.tern-config
 
 ## JetBrains (PhpStrom, PyCharm) 配置
