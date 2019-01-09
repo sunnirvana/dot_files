@@ -44,6 +44,10 @@ Plug 'davidhalter/jedi-vim'
 Plug 'terryma/vim-multiple-cursors' 
 "修改包围目标的符号，比如修改'abc' => <p>abc<p>
 Plug 'tpope/vim-surround' 
+"扩展repeat功能
+Plug 'tpope/vim-repeat'
+"visually select increasingly larger regions, + 扩展, _ 缩小
+Plug 'terryma/vim-expand-region'
 "注释 <leader>cc 取消注释 <leader>cu
 Plug 'scrooloose/nerdcommenter' 
 "格式化代码 :Neoformat
@@ -56,6 +60,8 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'morhetz/gruvbox' 
 "显示当前文件tags，依赖ctag, 参考文章安装https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/
 Plug 'majutsushi/tagbar' 
+"自动补全括号
+Plug 'Raimondi/delimitMate'
 
 " for Javascript, from https://hackernoon.com/using-neovim-for-javascript-development-4f07c289d862
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
@@ -475,4 +481,9 @@ if filereadable(expand("~/.config/nvim/local.vim"))
 	source ~/.vim/config/local.vim
 endif
 
-
+" - delimitMate -------------
+" for python docstring ", 特别有用
+au FileType python let b:delimitMate_nesting_quotes = ['"']
+" 关闭某些类型文件的自动补全
+"au FileType mail let b:delimitMate_autoclose = 0
+" ---------------------------
