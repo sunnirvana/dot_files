@@ -486,4 +486,6 @@ endif
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 " 关闭某些类型文件的自动补全
 "au FileType mail let b:delimitMate_autoclose = 0
+" 粘贴代码的时候自动补全括号这个特性怎么去掉?
+set pastetoggle=<f3>
 " ---------------------------
