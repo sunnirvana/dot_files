@@ -7,6 +7,9 @@ elseif has('unix') "Linux
     let g:python_host_prog='/usr/bin/python3.5'
 endif
 
+" 即时预览命令的效果（目前只支持:s替换）
+:set inccommand=split
+
 set nocompatible
 filetype off
 
@@ -80,9 +83,24 @@ Plug 'junegunn/fzf.vim'
 
 " 为了diff
 Plug 'chrisbra/vim-diff-enhanced'
+
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 call plug#end()
 
+" snippests
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " UI
+"
 if !exists("g:vimrc_loaded")
 	if has("nvim")
 		set termguicolors
