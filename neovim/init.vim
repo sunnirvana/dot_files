@@ -1,6 +1,9 @@
+" 加速vim启动
 if has('macunix') "Mac
+    let g:python3_host_skip_check=1
     let g:python_host_prog='/usr/local/anaconda3/bin/python3'
 elseif has('unix') "Linux
+    let g:python3_host_skip_check=1
     let g:python_host_prog='/usr/bin/python3.5'
 endif
 
@@ -13,11 +16,11 @@ call plug#begin("~/.config/nvim/bundle")
 " Plugin List
 Plug 'rking/ag.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'Valloric/MatchTagAlways'
+"Plug 'Valloric/MatchTagAlways'
 Plug 'bigeagle/molokai'
 " 主题 底边状态栏
 Plug 'bling/vim-airline' 
-Plug 'scrooloose/nerdtree' 
+Plug 'scrooloose/nerdtree'
 
 Plug 'majutsushi/tagbar'
 Plug 'jrosiek/vim-mark'
@@ -97,7 +100,7 @@ if !exists("g:vimrc_loaded")
     " Monokai
     let g:vim_monokai_tasty_italic = 1
     colorscheme vim-monokai-tasty
-	set background=dark " 或者 set background=light
+	" set background=dark " 或者 set background=light
 endif " exists(...)
 
 set so=10
