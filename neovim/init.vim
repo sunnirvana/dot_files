@@ -63,7 +63,8 @@ Plug 'machakann/vim-highlightedyank'
 "折叠代码 zo, zO, zc, zC
 Plug 'tmhedberg/SimpylFold' 
 "主题
-"Plug 'morhetz/gruvbox' 
+Plug 'morhetz/gruvbox'
+Plug 'patstockwell/vim-monokai-tasty'
 "显示当前文件tags，依赖ctag, 参考文章安装https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/
 Plug 'majutsushi/tagbar' 
 "自动补全括号
@@ -92,6 +93,11 @@ Plug 'honza/vim-snippets'
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+" javascript or react
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'styled-components/vim-styled-components'
+Plug 'elzr/vim-json'
 call plug#end()
 
 " snippests
@@ -107,8 +113,11 @@ if !exists("g:vimrc_loaded")
 	endif
 	"let g:molokai_original = 1
 	"colorscheme molokai
-	"colorscheme gruvbox
-	"set background=dark " 或者 set background=light
+	" colorscheme gruvbox
+    " Monokai
+    let g:vim_monokai_tasty_italic = 1
+    colorscheme vim-monokai-tasty
+	" set background=dark " 或者 set background=light
 endif " exists(...)
 
 set so=10
