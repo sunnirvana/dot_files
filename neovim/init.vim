@@ -159,7 +159,7 @@ nnoremap <F4> :set hlsearch! hlsearch?<CR>
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
 " 关闭buffer
-" nnoremap <leader>d :bp | bd #<CR>
+nmap <leader>d :bd<CR>
 
 
 set list lcs=tab:\¦\   
