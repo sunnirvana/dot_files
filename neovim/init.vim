@@ -127,8 +127,8 @@ noremap L $
 " 命令行模式增强，ctrl - a到行首， -e 到行尾
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+" cnoremap <C-a> <Home>
+" cnoremap <C-e> <End>
 
 " F1 - F6 设置
 
@@ -483,7 +483,7 @@ let g:ale_python_flake8_options = "--ignore=E501,F401,E226,E741,E402"
 " - FZF ---------------------
 " nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <C-e> :Buffers<CR>
 "----------------------------
 
 " - AG ----------------------
