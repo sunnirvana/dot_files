@@ -158,6 +158,10 @@ nnoremap <F4> :set hlsearch! hlsearch?<CR>
 " F6 语法开关，关闭语法可以加快大文件的展示
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
+" 关闭buffer
+" nnoremap <leader>d :bp | bd #<CR>
+
+
 set list lcs=tab:\¦\   
 
 if has("autocmd")  " go back to where you exited
@@ -247,7 +251,7 @@ set foldcolumn=0 "设置折叠区域的宽度
 set foldlevelstart=200
 set foldlevel=200  " disable auto folding
 " 用空格键来开关折叠
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<cr>
 vnoremap <Space> zf
 
 " 有一个或以上大写字母时仍大小写敏感
@@ -261,7 +265,7 @@ set incsearch
 set autochdir
 
 " 退出 insert mode 并保存
-imap jj <Esc>:w<CR>
+" imap jj <Esc>:w<CR>
 " 退出 insert mode
 imap jj <Esc>
 
