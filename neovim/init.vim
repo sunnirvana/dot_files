@@ -102,7 +102,8 @@ call plug#end()
 
 " snippests
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-t>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " UI
@@ -291,7 +292,7 @@ vmap k gk
 nmap j gj
 nmap k gk
 
-nmap T :tabnew<cr>
+" nmap T :tabnew<cr>
 
 au FileType c,cpp,h,java,css,js,nginx,scala,go inoremap  <buffer>  {<CR> {<CR>}<Esc>O
 
