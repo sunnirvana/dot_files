@@ -144,8 +144,8 @@ noremap L $
 " 命令行模式增强，ctrl - a到行首， -e 到行尾
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+" cnoremap <C-a> <Home>
+" cnoremap <C-e> <End>
 
 " F1 - F6 设置
 
@@ -174,6 +174,10 @@ nnoremap <F4> :set hlsearch! hlsearch?<CR>
 
 " F6 语法开关，关闭语法可以加快大文件的展示
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+
+" 关闭buffer
+nmap <leader>d :bd<CR>
+
 
 set list lcs=tab:\¦\   
 
@@ -232,6 +236,8 @@ set nobackup
 set noswapfile
 set nowritebackup
 set directory=/tmp/.swapfiles//
+" vsp 右边打开新窗口
+set splitright
 
 if has('nvim')
    set ttimeout
@@ -262,7 +268,7 @@ set foldcolumn=0 "设置折叠区域的宽度
 set foldlevelstart=200
 set foldlevel=200  " disable auto folding
 " 用空格键来开关折叠
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<cr>
 vnoremap <Space> zf
 
 " 有一个或以上大写字母时仍大小写敏感
@@ -276,7 +282,7 @@ set incsearch
 set autochdir
 
 " 退出 insert mode 并保存
-imap jj <Esc>:w<CR>
+" imap jj <Esc>:w<CR>
 " 退出 insert mode
 imap jj <Esc>
 
@@ -494,7 +500,7 @@ let g:ale_python_flake8_options = "--ignore=E501,F401,E226,E741,E402"
 " - FZF ---------------------
 " nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <C-e> :Buffers<CR>
 "----------------------------
 
 " - AG ----------------------
