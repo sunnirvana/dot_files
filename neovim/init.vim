@@ -215,6 +215,8 @@ set nobackup
 set noswapfile
 set nowritebackup
 set directory=/tmp/.swapfiles//
+" vsp 右边打开新窗口
+set splitright
 
 if has('nvim')
    set ttimeout
