@@ -182,7 +182,7 @@
   - prefix + U: 更新插件
   - prefix + alt + U: 卸载插件
   - prefix + ,: 重命名 window
-  - prefix + %: 重命名 session
+  - prefix + $: 重命名 session
   - prefix + c: 新开 window
   - prefix + n: 切换到下一个 window
 
