@@ -33,8 +33,8 @@
 		"Material Theme"
 	],
 	"indent_to_bracket": true,
-	"line_padding_bottom": 0,
-	"line_padding_top": 0,
+	"line_padding_bottom": 3,
+	"line_padding_top": 3,
 	"match_brackets": true,
 	"match_brackets_angle": false,
 	"match_brackets_braces": true,
