@@ -1,0 +1,136 @@
+{
+  "editor.fontFamily": "'Microsoft YaHei Mono','Noto Mono for Powerline','Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
+  "editor.lineHeight": 16,
+  "editor.roundedSelection": false,
+  "editor.cursorBlinking": "phase",
+  "editor.fontWeight": "500",
+
+  // neovim
+  "vim.enableNeovim": true,
+
+  // "vim.disableAnnoyingNeovimMessage": true,
+
+  "editor.formatOnSave": true,
+
+  "emmet.includeLanguages": {
+    "blade": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "files.autoGuessEncoding": true,
+  "gitlens.advanced.messages": {
+    "suppressFileNotUnderSourceControlWarning": true,
+    "suppressShowKeyBindingsNotice": true,
+    "suppressWelcomeNotice": true
+  },
+
+  "files.associations": {
+    "*.vue": "vue",
+    "*.make": "makefile"
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.options": {
+    "extensions": [".js", ".vue"]
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "vue", "vue-html"],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/dist": true
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "vue": "html",
+    "vue-html": "html"
+  },
+  "git.confirmSync": false,
+  "window.zoomLevel": 0,
+  "vsicons.projectDetection.autoReload": true,
+  // "typescript.check.tscVersion": false,
+  // "editor.cursorBlinking": "smooth",
+  "workbench.iconTheme": "vscode-great-icons",
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  // "tslint.autoFixOnSave": true,
+  // "beautify.tabSize": 4,
+  "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+  // "typescript.extension.sortImports.maxNamedImportsInSingleLine": 5,
+  // "typescript.extension.sortImports.omitSemicolon": true,
+  "editor.codeLens": true,
+  "editor.snippetSuggestions": "inline",
+  // "react-native-storybooks.port": 6006,
+  "explorer.confirmDelete": false,
+
+  "workbench.editor.labelFormat": "short",
+  "vsicons.dontShowNewVersionMessage": true,
+  "extensions.ignoreRecommendations": false,
+
+  // Prettier config reference: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+  "prettier.singleQuote": true,
+  "explorer.confirmDragAndDrop": false,
+  "editor.renderWhitespace": "none",
+  "editor.renderControlCharacters": false,
+  "editor.renderIndentGuides": false,
+
+  "gitlens.keymap": "chorded",
+  "cSpell.userWords": ["Laravel"],
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "vim.disableExtension": false,
+  "git.enableSmartCommit": true,
+
+  "rest-client.fontSize": 12,
+  "workbench.editor.showTabs": false,
+  "sync.gist": "8681f0c8965ed789a093f782530f88f3",
+  "markdown.preview.fontSize": 12,
+  "markdown.preview.lineHeight": 1.5,
+  "vim.easymotionMarkerFontSize": "12",
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
+  "gitlens.statusBar.enabled": false,
+  "projectManager.showProjectNameInStatusBar": false,
+  "gitlens.mode.statusBar.enabled": false,
+  "cSpell.showStatus": false,
+  "rest-client.showEnvironmentStatusBarItem": false,
+  "workbench.colorTheme": "Mariana Pro (Cool)",
+
+  // Python
+  "python.condaPath": "conda",
+  "python.pythonPath": "/usr/local/anaconda3/bin/python",
+  "python.analysis.logLevel": "Trace",
+  "python.jediEnabled": false,
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": [
+    "--load-plugins",
+    "pylint_django",
+    "--ignore=E501",
+    "--disable-msg=C0111"
+  ], // 忽略的警告信息
+  "python.linting.pep8Enabled": true,
+  "python.linting.pep8Args": ["--ignore=E501"],
+  // "python.linting.flake8Enabled": true,
+  // "python.linting.flake8Args": [
+  //     "--ignore=E501"
+  // ],
+  // "python.formatting.provider": "yapf",
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Path": "autopep8",
+
+  "path-intellisense.autoSlashAfterDirectory": true,
+  "path-intellisense.extensionOnImport": true,
+
+  // Terminal
+  "terminal.integrated.fontFamily": "'Noto Mono for Powerline','Source Code Pro'",
+  "breadcrumbs.enabled": true,
+
+  // Git code lens
+  "gitlens.codeLens.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "terminal.integrated.rendererType": "dom",
+  "workbench.activityBar.visible": true,
+  "workbench.sideBar.location": "left",
+  "cSpell.language": "en",
+  "background.customImages": ["/Users/sunyubo/Desktop/jetbrain_bg_image.jpg"],
+  "background.useDefault": false,
+  "background.enabled": false
+}
