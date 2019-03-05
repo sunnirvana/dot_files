@@ -114,6 +114,13 @@ export CPPFLAGS="-I/usr/local/opt/openssl/include"
 # anaconda
 export PATH="/usr/local/anaconda3/bin:$PATH"
 
+# disable Homebrew auto-update
+export HOMEBREW_NO_AUTO_UPDATE=true
+
+# change locale to UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # prevent ctr-d from exiting the shell 
 set -o ignoreeof
 
