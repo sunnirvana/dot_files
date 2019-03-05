@@ -251,10 +251,17 @@ nnoremap gv `[v`]
 "在insert模式下能用删除键进行删除
 set backspace=indent,eol,start
 
-set fenc=utf-8
-set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp,ucs-bom
-set enc=utf-8
-set termencoding=utf-8
+" set fenc=utf-8
+" set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp,ucs-bom
+" set enc=utf-8
+" set termencoding=utf-8
+" vim支持打开的文件编码  
+set fileencodings=utf-8,ucs-bom,shift-jis,latin1,big5,gb18030,gbk,gb2312,cp936  "文件 UTF-8 编码  
+" 解决显示界面乱码  
+set fileencoding=utf-8  
+set encoding=utf-8      "vim 内部编码  
+set termencoding=utf-8  
+
 " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=m
 " 合并两行中文时，不在中间加空格
