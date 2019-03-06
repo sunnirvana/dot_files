@@ -44,7 +44,7 @@
   brew install the_silver_searcher
 
   # Ubuntu
-  apt-get install silversearcher-ag
+  apt-get install silversearcher-ag -y
   ```
 
 - ctags (neovim 的插件需要) https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/
@@ -56,7 +56,7 @@
   brew install reattach-to-user-namespace
 
   # Ubuntu
-  sudo apt-get install xclip
+  sudo apt-get install xclip  -y
   ```
 
 ## iTerm2
@@ -121,11 +121,9 @@
 
   ```shell
   # Ubuntu
-  sudo apt-get install libevent-dev
-  sudo apt-get install libncurses-dev
+  sudo apt-get install -y libevent-dev libncurses-dev
   git clone https://github.com/tmux/tmux.git
-  cd tmux && sh autogen.sh
-  ./configure && make
+  cd tmux && sh autogen.sh && ./configure && make
   sudo make install
 
   # Mac
@@ -187,15 +185,11 @@
   sudo apt-get install software-properties-common
   sudo add-apt-repository ppa:neovim-ppa/stable
   sudo apt-get update
-  sudo apt-get install neovim
-  sudo apt-get install python-dev python-pip python3-dev python3-pip
+  sudo apt-get install -y neovim python-dev python-pip python3-dev python3-pip
 
-  sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-  sudo update-alternatives --config vi
-  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-  sudo update-alternatives --config vim
-  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-  sudo update-alternatives --config editor
+  sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60 && sudo update-alternatives --config vi
+  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60 && sudo update-alternatives --config vim
+  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60 && sudo update-alternatives --config editor
 
   # Mac
   brew install neovim
@@ -205,10 +199,7 @@
 
   ```shell
   # Ubuntu
-  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-  sudo update-alternatives --config vim
-  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-  sudo update-alternatives --config editor
+  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60 && sudo update-alternatives --config vim && sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60 && sudo update-alternatives --config editor
 
   # Mac 修改.zshrc
   alias vim='nvim'
