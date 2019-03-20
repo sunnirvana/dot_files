@@ -86,7 +86,7 @@
 
   ```shell
   # Ubuntu
-  sudo apt-get install zsh
+  sudo apt install zsh
   echo $SHELL
   sudo chsh -s /bin/zsh
   
@@ -128,7 +128,7 @@
 
   ```shell
   # Ubuntu
-  sudo apt-get install -y libevent-dev libncurses-dev
+  sudo apt install -y libevent-dev libncurses-dev automake autotools-dev
   git clone https://github.com/tmux/tmux.git
   cd tmux && sh autogen.sh && ./configure && make
   sudo make install
