@@ -27,7 +27,7 @@
   brew install highlight
 
   # Ubuntu
-  sudo apt-get install liblua5.3-dev libboost-all-dev
+  sudo apt install liblua5.3-dev libboost-all-dev
   wget http://www.andre-simon.de/zip/highlight-3.48.tar.bz2
   tar xjf highlight-3.48.tar.bz2
   cd highlight-3.48
@@ -44,7 +44,7 @@
   brew install the_silver_searcher
 
   # Ubuntu
-  apt-get install silversearcher-ag -y
+  sudo apt install silversearcher-ag -y
   ```
 
 - ctags (neovim 的插件需要) https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/
@@ -56,7 +56,7 @@
   brew install reattach-to-user-namespace
 
   # Ubuntu
-  sudo apt-get install xclip  -y
+  sudo apt install xclip  -y
   ```
 
 ## iTerm2
