@@ -27,7 +27,7 @@
   brew install highlight
 
   # Ubuntu
-  sudo apt-get install liblua5.3-dev
+  sudo apt-get install liblua5.3-dev libboost-all-dev
   wget http://www.andre-simon.de/zip/highlight-3.48.tar.bz2
   tar xjf highlight-3.48.tar.bz2
   cd highlight-3.48
