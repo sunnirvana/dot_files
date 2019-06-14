@@ -1,12 +1,12 @@
 #!/bin/sh
 
 SCRIPT_PATH=`pwd`
-echo $(SCRIPT_PATH)
+echo $SCRIPT_PATH
 
 # tmp folder
-cd ~
-mkdir tmp
-cd ~/tmp
+TMP_PATH=~/tmp
+mkdir -p $TMP_PATH
+cd $TMP_PATH
 
 # fd
 wget https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-musl_7.2.0_amd64.deb
@@ -23,9 +23,9 @@ tar xjf highlight-3.48.tar.bz2
 cd highlight-3.48
 make help
 make
-make install # (depending on your installation destination, you need to be root)
+sudo make install # (depending on your installation destination, you need to be root)
 
-cd $(SCRIPT_PATH)
+cd $SCRIPT_PATH
 
 # silversearcher and xclip
 sudo apt-get install -y silversearcher-ag xclip
@@ -44,17 +44,19 @@ set -o ignoreeof
 export FZF_DEFAULT_COMMAND=\"fd --exclude={.git,.idea,.vscode,.sass-cache,node_modules,build} --type f\"
 export FZF_DEFAULT_OPTS=\"--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'\"
 "
-echo $(ZSHRC) >> ~/.zshrc
+echo $ZSHRC >> ~/.zshrc
 
 # tmux
-cd ~/tmp
-sudo apt-get install -y libevent-dev libncurses-dev
+cd $TMP_PATH
+sudo apt-get install -y libevent-dev libncurses-dev libboost-all-dev autotools-dev automake
 git clone https://github.com/tmux/tmux.git
 cd tmux && sh autogen.sh && ./configure && make
 sudo make install
 
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ln -s $SCRIPT_PATH/tmux/tmux.conf ~/.tmux.conf
+
 
 # neovim
 sudo apt-get install -y software-properties-common
@@ -66,9 +68,8 @@ sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60 && sudo updat
 sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60 && sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60 && sudo update-alternatives --config editor
 
-cd $(SCRIPT_PATH)
 mkdir ~/.config/nvim
-ln -s ./nvim/init.vim ~/.config/nvim/init.vim
+ln -s $SCRIPT_PATH/nvim/init.vim ~/.config/nvim/init.vim
 
 # neovim jedi
 pip install -y neovim jedi
@@ -76,5 +77,4 @@ pip install -y --upgrade autopep8
 
 # vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 
