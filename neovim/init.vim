@@ -1,10 +1,10 @@
 " 加速vim启动
 if has('macunix') "Mac
     let g:python3_host_skip_check=1
-    let g:python_host_prog='/usr/local/anaconda3/bin/python3'
+    let g:python_host_prog='python3'
 elseif has('unix') "Linux
     let g:python3_host_skip_check=1
-    let g:python_host_prog='/usr/bin/python3.5'
+    let g:python_host_prog='python3'
 endif
 
 " 即时预览命令的效果（目前只支持:s替换）
@@ -308,7 +308,7 @@ au BufNewFile *.sh call ScriptHeader()
 
 function ScriptHeader()
     if &filetype == 'python'
-        let header = "#!/usr/bin/env mdl"
+        let header = "#!/usr/bin/env python3"
         let cfg = "# vim: ts=4 sw=4 sts=4 expandtab"
     elseif &filetype == 'sh'
         let header = "#!/bin/bash"
@@ -393,9 +393,9 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 0
 let g:deoplete#enable_smart_case = 1
 if has('macunix') " Mac
-    let g:deoplete#sources#jedi#python_path = "/usr/local/anaconda3/bin/python3.7"
+    let g:deoplete#sources#jedi#python_path = "python3"
 elseif has('unix') " Linux
-    let g:deoplete#sources#jedi#python_path = "/usr/bin/python3.5"
+    let g:deoplete#sources#jedi#python_path = "python3"
 endif
 let g:deoplete#sources#jedi#extra_path = split($PYTHONPATH, ":")
 
