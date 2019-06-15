@@ -1,4 +1,3 @@
-allure
 aom
 autoconf
 autossh
@@ -25,11 +24,9 @@ gmp
 gnutls
 go
 graphite2
-hadoop
 harfbuzz
 highlight
 icu4c
-imgcat
 jemalloc
 jpeg
 kubernetes-cli
@@ -100,7 +97,6 @@ x264
 x265
 xvid
 xz
-yarn
 zsh
 zsh-autosuggestions
 zsh-completions
