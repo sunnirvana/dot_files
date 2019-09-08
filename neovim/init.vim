@@ -1,11 +1,12 @@
 " 加速vim启动
 if has('macunix') "Mac
     let g:python3_host_skip_check=1
-    let g:python_host_prog='/usr/local/anaconda3/bin/python3'
+    " let g:python_host_prog='/usr/local/anaconda3/bin/python3'
     " let g:python_host_prog='/usr/local/bin/python3'
+    let g:python_host_prog='python3'
 elseif has('unix') "Linux
     let g:python3_host_skip_check=1
-    let g:python_host_prog='/usr/bin/python3.5'
+    let g:python_host_prog='python3'
 endif
 
 " 即时预览命令的效果（目前只支持:s替换）
@@ -252,10 +253,17 @@ nnoremap gv `[v`]
 "在insert模式下能用删除键进行删除
 set backspace=indent,eol,start
 
-set fenc=utf-8
-set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp,ucs-bom
-set enc=utf-8
-set termencoding=utf-8
+" set fenc=utf-8
+" set fencs=utf-8,gbk,gb18030,gb2312,cp936,usc-bom,euc-jp,ucs-bom
+" set enc=utf-8
+" set termencoding=utf-8
+" vim支持打开的文件编码  
+set fileencodings=utf-8,ucs-bom,shift-jis,latin1,big5,gb18030,gbk,gb2312,cp936  "文件 UTF-8 编码  
+" 解决显示界面乱码  
+set fileencoding=utf-8  
+set encoding=utf-8      "vim 内部编码  
+set termencoding=utf-8  
+
 " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=m
 " 合并两行中文时，不在中间加空格
@@ -302,7 +310,7 @@ au BufNewFile *.sh call ScriptHeader()
 
 function ScriptHeader()
     if &filetype == 'python'
-        let header = "#!/usr/bin/env mdl"
+        let header = "#!/usr/bin/env python3"
         let cfg = "# vim: ts=4 sw=4 sts=4 expandtab"
     elseif &filetype == 'sh'
         let header = "#!/bin/bash"
@@ -387,10 +395,11 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 0
 let g:deoplete#enable_smart_case = 1
 if has('macunix') " Mac
-    let g:deoplete#sources#jedi#python_path = "/usr/local/anaconda3/bin/python3"
+    " let g:deoplete#sources#jedi#python_path = "/usr/local/anaconda3/bin/python3"
     " let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3"
+    let g:deoplete#sources#jedi#python_path = "python3"
 elseif has('unix') " Linux
-    let g:deoplete#sources#jedi#python_path = "/usr/bin/python3.5"
+    let g:deoplete#sources#jedi#python_path = "python3"
 endif
 let g:deoplete#sources#jedi#extra_path = split($PYTHONPATH, ":")
 
