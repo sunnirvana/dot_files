@@ -183,6 +183,18 @@
   - tksv: tmux kill-server
   - tkss: tmux kill-session -t
 
+## Vim
+
+- 安装 Vim Bundle
+
+  ```shell
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+  ```
+
+- 拷贝vimrc到~/.vimrc
+
+- 在vim中使用`PluginInstall`安装插件
+
 ## neovim
 
 - 安装 https://neovim.io/
