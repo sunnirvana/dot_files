@@ -2,13 +2,14 @@
 if has('macunix') "Mac
     let g:python3_host_skip_check=1
     let g:python_host_prog='/usr/local/anaconda3/bin/python3'
+    " let g:python_host_prog='/usr/local/bin/python3'
 elseif has('unix') "Linux
     let g:python3_host_skip_check=1
     let g:python_host_prog='/usr/bin/python3.5'
 endif
 
 " 即时预览命令的效果（目前只支持:s替换）
-:set inccommand=split
+" :set inccommand=split
 
 set nocompatible
 filetype off
@@ -96,7 +97,7 @@ let g:UltiSnipsEditSplit="vertical"
 " javascript or react
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'styled-components/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'elzr/vim-json'
 call plug#end()
 
@@ -386,7 +387,8 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 0
 let g:deoplete#enable_smart_case = 1
 if has('macunix') " Mac
-    let g:deoplete#sources#jedi#python_path = "/usr/local/anaconda3/bin/python3.7"
+    let g:deoplete#sources#jedi#python_path = "/usr/local/anaconda3/bin/python3"
+    " let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3"
 elseif has('unix') " Linux
     let g:deoplete#sources#jedi#python_path = "/usr/bin/python3.5"
 endif
