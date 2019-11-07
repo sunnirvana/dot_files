@@ -102,6 +102,7 @@ Plugin 'elzr/vim-json'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 
 if !exists("g:vimrc_loaded")
@@ -252,7 +253,7 @@ set backspace=indent,eol,start
 " set enc=utf-8
 " set termencoding=utf-8
 " vim支持打开的文件编码  
-set fileencodings=utf-8,ucs-bom,shift-jis,latin1,big5,gb18030,gbk,gb2312,cp936,euc-jp,euc-kr "文件 UTF-8 编码  
+set fileencodings=ucs-bom,utf-8,shift-jis,latin1,big5,gb18030,gbk,gb2312,cp936,euc-jp,euc-kr "文件 UTF-8 编码  
 " 解决显示界面乱码  
 set fileencoding=utf-8  
 set encoding=utf-8      "vim 内部编码  
@@ -368,7 +369,9 @@ set laststatus=2
 "上方显示buffer编号(NUM)，可以使用 NUM CTRL+6 跳转buffer
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1 
-let g:airline_powerline_fonts = 1
+if !has('gui_running')
+    let g:airline_powerline_fonts = 1
+endif
 " ----------------------------
 
 " - Neoformat ---------------
@@ -520,6 +523,15 @@ nnoremap <silent> <Leader>A :Ag<CR>
 if filereadable(expand("~/.config/nvim/local.vim"))
 	source ~/.vim/config/local.vim
 endif
+
+"if has("macvim")
+" 配置英文字体
+set guifont=Noto\ Mono\ for\ Powerline:h14
+" 指定宽字符的字体，如中文字符
+" 实际上使用这个字体下的字符都会占用2倍的宽度
+set guifontwide=Noto\ Mono\ for\ Powerline:h14
+set linespace=2   " set the line height
+"endif
 
 " - delimitMate -------------
 " for python docstring ", 特别有用
